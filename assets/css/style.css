@@ -23,6 +23,10 @@ a{text-decoration:none}
   font-size:.92rem;
 }
 .topbar a{color:#fff}
+.logo{
+  width: clamp(150px, 30vw, 500px);
+  height: auto;
+}
 .header{
   background:rgba(255,255,255,.96);
   backdrop-filter: blur(10px);
