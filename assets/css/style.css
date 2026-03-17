@@ -122,19 +122,16 @@ a{text-decoration:none}
   color:#fff;
   line-height:1.02;
   background: linear-gradient(
-    90deg,
-    #026ba3,
-    #0077b6,
-    #178fcf,
-    #2a9fde,
-    #5eb9eb,
-    #48cae4,
-    #5ed3eb,
-    #74d9ed,
-    #90e0ef,
-    #a8ebf7,
-    #bdf3fc
-  );
+  90deg,
+  #026ba3 0%,
+  #0077b6 15%,
+  #178fcf 30%,
+  #2a9fde 45%,
+  #48cae4 60%,
+  #74d9ed 75%,
+  #90e0ef 88%,
+  #bdf3fc 100%
+);
   background-size: 250% 100%;
 
   -webkit-background-clip: text;
