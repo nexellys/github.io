@@ -119,22 +119,20 @@ a{text-decoration:none}
   font-weight:700;
 }
 .hero h1{
-  font-family: 'Orbitron', sans-serif;
   font-size:clamp(3rem, 8vw, 7rem);
   font-weight:900;
-  color:#fff;
   line-height:1.02;
+
+  font-family: 'Orbitron', sans-serif;
+
   background: linear-gradient(
-  90deg,
-  #026ba3 0%,
-  #0077b6 15%,
-  #178fcf 30%,
-  #2a9fde 45%,
-  #48cae4 60%,
-  #74d9ed 75%,
-  #90e0ef 88%,
-  #bdf3fc 100%
-);
+    90deg,
+    #00b4d8,
+    #48cae4,
+    #90e0ef,
+    #0077b6,
+    #00b4d8
+  );
   background-size: 250% 100%;
 
   -webkit-background-clip: text;
@@ -142,7 +140,7 @@ a{text-decoration:none}
   background-clip: text;
   color: transparent;
 
-  animation: waveFlow 8s linear infinite;
+  animation: waveFlow 4s linear infinite;
 }
 .hero p{
   color:#e5e7eb;
