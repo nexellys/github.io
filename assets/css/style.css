@@ -122,25 +122,33 @@ a{text-decoration:none}
   font-size:clamp(3rem, 8vw, 7rem);
   font-weight:900;
   line-height:1.02;
-
   font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 20px rgba(72,202,228,0.25);
+
 
   background: linear-gradient(
     90deg,
-    #00b4d8,
-    #48cae4,
-    #90e0ef,
-    #0077b6,
-    #00b4d8
+    #00b4d8 0%,
+    #1ec2e0 10%,
+    #48cae4 20%,
+    #6fd6ea 30%,
+    #90e0ef 40%,
+    #74d9ed 50%,
+    #48cae4 60%,
+    #2a9fde 70%,
+    #0077b6 80%,
+    #0096c7 90%,
+    #00b4d8 100%
   );
-  background-size: 250% 100%;
+
+  background-size: 300% 100%;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 
-  animation: waveFlow 8s linear infinite;
+  animation: waveFlow 7s linear infinite;
 }
 .hero p{
   color:#e5e7eb;
@@ -300,6 +308,6 @@ a{text-decoration:none}
     background-position: 0% 50%;
   }
   100% {
-    background-position: 250% 50%;
+    background-position: 300% 50%;
   }
 }
