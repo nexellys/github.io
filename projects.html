@@ -1,0 +1,130 @@
+
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>NEXELLYS - Projets</title>
+      <meta name="description" content="NEXELLYS - travaux, rénovation, coordination technique et maintenance.">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+      <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+      <div class="topbar py-2">
+        <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+          <div class="d-flex flex-wrap gap-3">
+            <span><i class="bi bi-geo-alt me-2"></i>1 avenue des Courtils, Gouvieux</span>
+            <span><i class="bi bi-telephone me-2"></i>06 52 14 15 35</span>
+            <span><i class="bi bi-envelope me-2"></i>contact@nexellys.fr</span>
+          </div>
+          <div><strong>Du lundi au vendredi</strong> · 8h00 à 19h00</div>
+        </div>
+      </div>
+
+      <header class="header fixed-top">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+              <img src="assets/img/nexellys.png" alt="Nexellys">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+              <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link " href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link " href="about.html">Entreprise</a></li>
+                <li class="nav-item"><a class="nav-link " href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link active" href="projects.html">Projets</a></li>
+                <li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
+                <li class="nav-item ms-lg-3"><a class="btn btn-brand" href="contact.html">Demander un devis</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+<section class="page-hero">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-item active text-white">Projets</li>
+      </ol>
+    </nav>
+    <h1 class="display-5 fw-bold mb-3">Nos projets</h1>
+    <p class="mb-0 col-lg-8">Une galerie enrichie avec filtrage et visuels réels extraits de la vidéo fournie.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="project-filters">
+      <button class="active" data-filter="all">Tous</button>
+      <button data-filter="renovation">Rénovation</button>
+      <button data-filter="batiment">Bâtiment</button>
+      <button data-filter="technique">Technique</button>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 project-item" data-category="renovation"><div class="project-card"><img src="assets/img/photo-4.jpg" alt=""><div class="project-body"><span class="tag">Rénovation</span><h5 class="fw-bold">Projet 01</h5><p>Visuel réel intégré.</p></div></div></div>
+      <div class="col-lg-4 col-md-6 project-item" data-category="batiment"><div class="project-card"><img src="assets/img/photo-5.jpg" alt=""><div class="project-body"><span class="tag">Bâtiment</span><h5 class="fw-bold">Projet 02</h5><p>Portfolio avec rendu professionnel.</p></div></div></div>
+      <div class="col-lg-4 col-md-6 project-item" data-category="technique"><div class="project-card"><img src="assets/img/photo-6.jpg" alt=""><div class="project-body"><span class="tag">Technique</span><h5 class="fw-bold">Projet 03</h5><p>Bloc prêt à personnaliser.</p></div></div></div>
+      <div class="col-lg-4 col-md-6 project-item" data-category="batiment"><div class="project-card"><img src="assets/img/photo-1.jpg" alt=""><div class="project-body"><span class="tag">Bâtiment</span><h5 class="fw-bold">Projet 04</h5><p>Carte premium visuelle.</p></div></div></div>
+      <div class="col-lg-4 col-md-6 project-item" data-category="renovation"><div class="project-card"><img src="assets/img/photo-2.jpg" alt=""><div class="project-body"><span class="tag">Rénovation</span><h5 class="fw-bold">Projet 05</h5><p>Vrai visuel supplémentaire.</p></div></div></div>
+      <div class="col-lg-4 col-md-6 project-item" data-category="technique"><div class="project-card"><img src="assets/img/photo-3.jpg" alt=""><div class="project-body"><span class="tag">Technique</span><h5 class="fw-bold">Projet 06</h5><p>Galerie cohérente et réaliste.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <h5>NEXELLYS</h5>
+              <p class="mb-3">Entreprise de travaux, coordination technique, maintenance et rénovation pour les particuliers et les professionnels.</p>
+              <p class="mb-1"><i class="bi bi-geo-alt me-2"></i>1 avenue des Courtils, Gouvieux</p>
+              <p class="mb-1"><i class="bi bi-telephone me-2"></i>06 52 14 15 35</p>
+              <p class="mb-1"><i class="bi bi-envelope me-2"></i>contact@nexellys.fr</p>
+              <p class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>devis@nexellys.fr</p>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <h5>Navigation</h5>
+              <ul class="list-unstyled d-grid gap-2">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">Entreprise</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+              <h5>Prestations</h5>
+              <ul class="list-unstyled d-grid gap-2">
+                <li>Rénovation</li>
+                <li>Maintenance</li>
+                <li>Gestion de chantier</li>
+                <li>Coordination technique</li>
+                <li>Devis & accompagnement</li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+              <h5>Horaires</h5>
+              <p class="mb-2">Du lundi au vendredi</p>
+              <p class="mb-2"><strong>8h00 à 19h00</strong></p>
+              <p class="small-muted mb-0">Réponse rapide par e-mail pour les demandes de devis et les prises de contact.</p>
+            </div>
+          </div>
+          <div class="copyright text-center">© 2026 NEXELLYS. Version V4 avec vidéo intégrée et vrais visuels extraits du média fourni.</div>
+        </div>
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/main.js"></script>
+    </body>
+    </html>
