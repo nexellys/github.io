@@ -132,12 +132,14 @@ a{text-decoration:none}
   background-clip: text;
   color: transparent;
 
-  animation: waveFlow 4s linear infinite;
+  animation: waveFlow 8s linear infinite;
 }
 .hero p{
   color:#e5e7eb;
-  font-size:clamp(2rem, 5vw, 4rem);
+  font-size:clamp(1rem, 4vw, 3rem);
   max-width:690px;
+  margin: 0 auto;
+  text-align: center;
 }
 .hero-strip{
   margin-top:-48px;
