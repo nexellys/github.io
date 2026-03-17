@@ -24,8 +24,11 @@ a{text-decoration:none}
 }
 .topbar a{color:#fff}
 .logo{
-  width: clamp(150px, 30vw, 500px);
+  width: clamp(200px, 35vw, 500px);
   height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4));
 }
 .header{
   background:rgba(255,255,255,.96);
