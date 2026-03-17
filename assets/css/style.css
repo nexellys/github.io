@@ -140,7 +140,7 @@ a{text-decoration:none}
   background-clip: text;
   color: transparent;
 
-  animation: waveFlow 4s linear infinite;
+  animation: waveFlow 8s linear infinite;
 }
 .hero p{
   color:#e5e7eb;
