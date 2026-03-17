@@ -96,6 +96,8 @@ a{text-decoration:none}
   min-height:88vh;
   display:flex;
   align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 .hero-badge{
   display:inline-flex;
@@ -110,10 +112,27 @@ a{text-decoration:none}
   font-weight:700;
 }
 .hero h1{
-  font-size:clamp(2.4rem, 5vw, 5rem);
-  font-weight:800;
+  font-family: 'Orbitron', sans-serif;
+  font-size:clamp(3rem, 8vw, 7rem);
+  font-weight:900;
   color:#fff;
   line-height:1.02;
+  background: linear-gradient(
+    90deg,
+    #00b4d8,
+    #48cae4,
+    #90e0ef,
+    #0077b6,
+    #00b4d8
+  );
+  background-size: 250% 100%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  animation: waveFlow 4s linear infinite;
 }
 .hero p{
   color:#e5e7eb;
@@ -265,4 +284,12 @@ a{text-decoration:none}
   .hero{margin-top:110px}
   .hero-video-wrap,.hero-content{min-height:78vh}
   .hero-strip{margin-top:-28px}
+}
+@keyframes waveFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 250% 50%;
+  }
 }
