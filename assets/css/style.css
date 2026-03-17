@@ -119,11 +119,17 @@ a{text-decoration:none}
   line-height:1.02;
   background: linear-gradient(
     90deg,
-    #00b4d8,
-    #48cae4,
-    #90e0ef,
+    #026ba3,
     #0077b6,
-    #00b4d8
+    #178fcf,
+    #2a9fde,
+    #5eb9eb
+    #48cae4,
+    #5ed3eb,
+    #74d9ed,
+    #90e0ef,
+    #a8ebf7,
+    #bdf3fc
   );
   background-size: 250% 100%;
 
