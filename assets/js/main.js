@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     video.play().catch(() => {});
   }
 });
- const track = document.getElementById("carouselTrack");
+ <script>
+  const track = document.getElementById("carouselTrack");
   const wrapper = document.getElementById("cardsCarousel");
 
   const originalItems = Array.from(track.children);
@@ -57,21 +58,37 @@ document.addEventListener('DOMContentLoaded', function () {
   let autoSpeed = 0.45;
   let isPaused = false;
 
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let startPosition = 0;
+
   function getFirstSetWidth() {
     return track.scrollWidth / 2;
   }
 
+  function normalizePosition() {
+    const firstSetWidth = getFirstSetWidth();
+
+    while (position < 0) {
+      position += firstSetWidth;
+    }
+
+    while (position >= firstSetWidth) {
+      position -= firstSetWidth;
+    }
+  }
+
+  function renderCarousel() {
+    normalizePosition();
+    track.style.transform = `translateX(-${position}px)`;
+    updateActiveCard();
+  }
+
   function animateCarousel() {
-    if (!isPaused) {
+    if (!isPaused && !isDragging) {
       position += autoSpeed;
-
-      const firstSetWidth = getFirstSetWidth();
-      if (position >= firstSetWidth) {
-        position = 0;
-      }
-
-      track.style.transform = `translateX(-${position}px)`;
-      updateActiveCard();
+      renderCarousel();
     }
 
     animationFrame = requestAnimationFrame(animateCarousel);
@@ -81,18 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const item = track.querySelector(".scroll-item");
     const gap = 24;
     const moveAmount = item.offsetWidth + gap;
-    const firstSetWidth = getFirstSetWidth();
 
     if (direction === "right") {
       position += moveAmount;
-      if (position >= firstSetWidth) position -= firstSetWidth;
     } else {
       position -= moveAmount;
-      if (position < 0) position += firstSetWidth;
     }
 
-    track.style.transform = `translateX(-${position}px)`;
-    updateActiveCard();
+    renderCarousel();
   }
 
   function updateActiveCard() {
@@ -122,24 +135,84 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   wrapper.addEventListener("mouseenter", () => {
-    isPaused = true;
+    if (!isDragging) isPaused = true;
   });
 
   wrapper.addEventListener("mouseleave", () => {
-    isPaused = false;
+    if (!isDragging) isPaused = false;
   });
 
-  wrapper.addEventListener("touchstart", () => {
+  wrapper.addEventListener("mousedown", (e) => {
+    isDragging = true;
     isPaused = true;
+    wrapper.classList.add("dragging");
+    startX = e.pageX;
+    startPosition = position;
   });
 
-  wrapper.addEventListener("touchend", () => {
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.pageX - startX;
+    position = startPosition - deltaX;
+    renderCarousel();
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    wrapper.classList.remove("dragging");
+
     setTimeout(() => {
       isPaused = false;
-    }, 1200);
+    }, 700);
   });
 
-  window.addEventListener("resize", updateActiveCard);
+  wrapper.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    isPaused = true;
+    startX = e.touches[0].pageX;
+    startY = e.touches[0].pageY;
+    startPosition = position;
+  }, { passive: true });
 
-  updateActiveCard();
+  wrapper.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+
+    const touchX = e.touches[0].pageX;
+    const deltaX = touchX - startX;
+    position = startPosition - deltaX;
+    renderCarousel();
+  }, { passive: true });
+
+  wrapper.addEventListener("touchend", () => {
+    isDragging = false;
+
+    setTimeout(() => {
+      isPaused = false;
+    }, 900);
+  });
+
+  wrapper.addEventListener("wheel", (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      position += e.deltaY;
+    } else {
+      position += e.deltaX;
+    }
+
+    isPaused = true;
+    renderCarousel();
+
+    clearTimeout(wrapper.wheelTimeout);
+    wrapper.wheelTimeout = setTimeout(() => {
+      isPaused = false;
+    }, 800);
+
+    e.preventDefault();
+  }, { passive: false });
+
+  window.addEventListener("resize", renderCarousel);
+
+  renderCarousel();
   animateCarousel();
