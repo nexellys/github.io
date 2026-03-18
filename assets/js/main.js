@@ -43,3 +43,103 @@ document.addEventListener('DOMContentLoaded', function () {
     video.play().catch(() => {});
   }
 });
+ const track = document.getElementById("carouselTrack");
+  const wrapper = document.getElementById("cardsCarousel");
+
+  const originalItems = Array.from(track.children);
+  originalItems.forEach(item => {
+    const clone = item.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let position = 0;
+  let animationFrame;
+  let autoSpeed = 0.45;
+  let isPaused = false;
+
+  function getFirstSetWidth() {
+    return track.scrollWidth / 2;
+  }
+
+  function animateCarousel() {
+    if (!isPaused) {
+      position += autoSpeed;
+
+      const firstSetWidth = getFirstSetWidth();
+      if (position >= firstSetWidth) {
+        position = 0;
+      }
+
+      track.style.transform = `translateX(-${position}px)`;
+      updateActiveCard();
+    }
+
+    animationFrame = requestAnimationFrame(animateCarousel);
+  }
+
+  function moveCarousel(direction) {
+    const item = track.querySelector(".scroll-item");
+    const gap = 24;
+    const moveAmount = item.offsetWidth + gap;
+    const firstSetWidth = getFirstSetWidth();
+
+    if (direction === "right") {
+      position += moveAmount;
+      if (position >= firstSetWidth) position -= firstSetWidth;
+    } else {
+      position -= moveAmount;
+      if (position < 0) position += firstSetWidth;
+    }
+
+    track.style.transform = `translateX(-${position}px)`;
+    updateActiveCard();
+  }
+
+  function updateActiveCard() {
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
+
+    const cards = track.querySelectorAll(".premium-card");
+    let closestCard = null;
+    let closestDistance = Infinity;
+
+    cards.forEach(card => {
+      card.classList.remove("is-active");
+
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.left + rect.width / 2;
+      const distance = Math.abs(wrapperCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = card;
+      }
+    });
+
+    if (closestCard) {
+      closestCard.classList.add("is-active");
+    }
+  }
+
+  wrapper.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    isPaused = false;
+  });
+
+  wrapper.addEventListener("touchstart", () => {
+    isPaused = true;
+  });
+
+  wrapper.addEventListener("touchend", () => {
+    setTimeout(() => {
+      isPaused = false;
+    }, 1200);
+  });
+
+  window.addEventListener("resize", updateActiveCard);
+
+  updateActiveCard();
+  animateCarousel();
