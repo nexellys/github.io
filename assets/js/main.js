@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     video.play().catch(() => {});
   }
 });
- <script>
+
   const track = document.getElementById("carouselTrack");
   const wrapper = document.getElementById("cardsCarousel");
 
